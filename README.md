@@ -154,4 +154,4 @@ Clerk middleware currently protects `/dashboard/:path*`, `/forum/:path*`, and `/
 
 ## License
 
-No license file is currently included. All rights are reserved unless the repository owner specifies otherwise.
+No license file is currently included.
