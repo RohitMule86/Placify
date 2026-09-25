@@ -1,77 +1,109 @@
 import { SignIn } from "@clerk/nextjs";
+import Image from "next/image";
+import Link from "next/link";
+import { Sparkles, CheckCircle2, ArrowLeft } from "lucide-react";
 
 export default function Page() {
   return (
-    <section className="bg-white">
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-          <img
-            alt=""
-            src="https://images.unsplash.com/photo-1617195737496-bc30194e3"
-            className="absolute inset-0 h-full w-full object-cover opacity-80"
-          />
+    <section className="min-h-screen bg-background flex flex-col lg:flex-row font-sans selection:bg-primary/10">
+      {/* Left Branding & Highlights Panel */}
+      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white p-12 flex-col justify-between overflow-hidden">
+        {/* Decorative background glow accents */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-          <div className="hidden lg:relative lg:block lg:p-12">
-            <a className="block text-white" href="#">
-              <span className="sr-only">Home</span>
-              <svg
-                className="h-8 sm:h-10"
-                viewBox="0 0 28 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2."
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-
-            <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl">
-              Welcome to Placify
-            </h2>
-
-            <p className="mt-4 leading-relaxed text-white/90">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              quibusdam aperiam voluptatum.
-            </p>
-          </div>
-        </section>
-
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-          <div className="max-w-xl lg:max-w-3xl">
-            <div className="relative -mt-16 block lg:hidden">
-              <a
-                className="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20"
-                href="#"
-              >
-                <span className="sr-only">Home</span>
-                <svg
-                  className="h-8 sm:h-10"
-                  viewBox="0 0 28 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2."
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-
-              <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Welcome to Placify
-              </h1>
-
-              <p className="mt-4 leading-relaxed text-gray-500">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                quibusdam aperiam voluptatum.
-              </p>
+        {/* Top Header Logo */}
+        <div className="relative z-10 flex items-center gap-3">
+          <Link href="/">
+            <div className="bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/15 inline-block hover:bg-white/15 transition-all">
+              <Image
+                src="/logo.svg"
+                width={150}
+                height={36}
+                alt="InterviewAI Logo"
+                priority
+                className="h-8 w-auto brightness-0 invert"
+              />
             </div>
+          </Link>
+        </div>
 
-            <SignIn />
+        {/* Middle Content Section */}
+        <div className="relative z-10 max-w-lg my-auto space-y-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-white/90 text-xs font-semibold border border-white/15 backdrop-blur-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span>AI-Powered Interview Coach</span>
           </div>
-        </main>
+
+          <h1 className="text-4xl xl:text-5xl font-extrabold tracking-tight leading-tight">
+            Master Your Interviews with AI Confidence
+          </h1>
+
+          <p className="text-slate-300 text-base leading-relaxed">
+            Practice customized technical and behavioral interview questions tailored to your target job position. Get instant AI evaluations and actionable feedback.
+          </p>
+
+          <div className="space-y-4 pt-2 text-sm text-slate-200">
+            <div className="flex items-start gap-3">
+              <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 mt-0.5">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <span>Role-specific technical & behavioral interview questions</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 mt-0.5">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <span>Real-time voice speech analysis & webcam response recording</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 mt-0.5">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <span>Instant AI ratings, detailed feedback & model answers</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Footer Note */}
+        <div className="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+          <span>© {new Date().getFullYear()} Placify. All rights reserved.</span>
+          <Link href="/" className="hover:text-white transition-colors flex items-center gap-1">
+            <ArrowLeft className="w-3 h-3" /> Back to Home
+          </Link>
+        </div>
+      </div>
+
+      {/* Right Clerk Auth Form Panel */}
+      <div className="flex-1 flex flex-col justify-center items-center p-6 sm:p-12 bg-background relative">
+        {/* Mobile Header Logo */}
+        <div className="w-full max-w-md flex items-center justify-between mb-8 lg:hidden">
+          <Link href="/">
+            <Image
+              src="/logo.svg"
+              width={140}
+              height={34}
+              alt="InterviewAI Logo"
+              priority
+              className="h-8 w-auto"
+            />
+          </Link>
+          <Link href="/" className="text-xs font-medium text-muted-foreground hover:text-foreground flex items-center gap-1">
+            <ArrowLeft className="w-3.5 h-3.5" /> Back
+          </Link>
+        </div>
+
+        {/* Back to Home Button (Desktop) */}
+        <div className="hidden lg:block absolute top-8 right-8">
+          <Link href="/" className="text-xs font-medium text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors">
+            <ArrowLeft className="w-3.5 h-3.5" /> Back to Home
+          </Link>
+        </div>
+
+        {/* Clerk Sign In Box Wrapper */}
+        <div className="w-full max-w-md flex justify-center items-center">
+          <SignIn />
+        </div>
       </div>
     </section>
   );
